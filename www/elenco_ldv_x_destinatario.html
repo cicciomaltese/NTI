@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        
+        <!--phonegap viewport: fda problemi con l's3 dell'ufficio
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        -->
+        <!--IONIC viewport
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        -->
+        <!--JQUERY mobile viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!--css comune a tutta la app-->
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        
+        <!--jquery mobile CSS-->
+        <link rel="stylesheet" href="css/themes/nti.min.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+        
+        <link rel="stylesheet" href="css/datepicker/jquery.mobile.datepicker.css" /> <!--datepicker-->
+        <link rel="stylesheet" href="css/datepicker/jquery.mobile.datepicker.theme.css" /> <!--datepicker-->
+        
+        <!--css di pagina-->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <!--JS-->
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        
+        <!--jquery mobile JS-->
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="css/datepicker/external/jquery-ui/datepicker.js"></script> <!--datepicker-->
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function () {
+                $.mobile.ajaxEnabled = false;
+            });
+        </script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+       
+        <script src="css/datepicker/jquery.mobile.datepicker.js"></script> <!--datepicker-->
+        
+        <!--soap-->
+        <script src="js/lib/soap/jquery.soap.js"></script>
+        <script src="js/lib/soap/jquery.xml2json.js"></script>
+        
+        
+        
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/ldv_x_dest.js"></script>
+        
+        <!--datepicker
+        <script>
+            $(function(){
+                $( ".date-input-css" ).datepicker();
+            })
+        </script>   -->
+        <title>NTI - APP</title>
+    </head>
+    <body>
+    
+            <div data-url="panel-fixed-page1" data-role="page" class="jqm-demos" id="panel-fixed-page1" data-title="Panel fixed positioning">
+                <div data-role="header" data-position="fixed">
+                    <h1>TRACKING</h1>
+                    <a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="ui-nodisc-icon">Menu</a>
+                    <a href="#add-form" data-icon="gear" data-iconpos="notext" class="ui-nodisc-icon">Add</a>
+                </div><!-- /header -->
+                <div role="main" class="ui-content jqm-content jqm-fullwidth">
+                    
+                      <form name="login_form" id="login_form"><!--class="ui-body ui-body-a ui-corner-all"-->
+                          
+                          <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                         <input name="data_inizio" id="data_inizio" placeholder="Data inizio" value="26.01.2015" type="text" data-role="date">
+                                </div>
+                                <div class="ui-block-b">
+                                        <input name="data_fine" id="data_fine" placeholder="Data fine" value="25.02.2015" type="text" data-role="date">
+                                </div>
+                          </div><!-- /grid-a -->
+                          <div class="ui-grid-a">
+                              <div class="ui-block-a">
+                                    <input name="Destinatario" id="Destinatario" placeholder="Destinatario" value="" type="text">
+                              </div>
+                              <div class="ui-block-b">
+                                        <button type="button" class="ui-btn ui-btn-b ui-corner-all ui-mini" id="start_search">Cerca</button>
+                                </div>
+                          </div>
+                          
+                          
+                          
+                          
+                         
+                          
+                      </form>
+                    
+                </div><!-- /content -->
+                
+                <div data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
+                    <ul data-role="listview" data-theme="a">
+                        <li data-icon="delete"><a href="#" data-rel="close" class="ui-nodisc-icon">Chiudi</a></li>
+                            <li><a class="ui-btn ui-btn-icon-left ui-icon-search ui-nodisc-icon" href="tracking.html">Tracking</a></li>
+                            <li><a class="ui-btn ui-btn-icon-left ui-icon-phone ui-nodisc-icon" href="#panel-fixed-page2">Prenota un ritiro</a></li>
+                            <li><a class="ui-btn ui-btn-icon-left ui-icon-gear ui-nodisc-icon" href="#panel-fixed-page2">Servizi</a></li>
+                            <li><a class="ui-btn ui-btn-icon-left ui-icon-info ui-nodisc-icon" href="#panel-fixed-page2">Chi siamo</a></li>
+                            <li><a class="ui-btn ui-btn-icon-left ui-icon-user ui-nodisc-icon" href="#panel-fixed-page2">Contatti</a></li>
+                    </ul>    
+                </div><!-- /panel -->
+                <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                    <form class="userform">
+                        <h2 id="user_name"></h2>
+                        
+                        <div class="ui-grid-a">
+                            <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" onclick="LOGIN.handle_logout()">Esci</a></div>
+                        </div>
+                    </form>
+                </div><!-- /panel -->
+            </div> 
+        
+            <script type="text/javascript">    
+               LDV_X_DEST.initialize();
+            </script>
+        
+    </body>
+</html>
